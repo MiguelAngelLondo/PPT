@@ -5,6 +5,7 @@ const start = document.getElementById('start');
 
 window.addEventListener("DOMContentLoaded", pressButton);
 
+
 function pressButton() {
     rock.addEventListener("click", (event) => pressedButton(event, "rock"));
     paper.addEventListener("click", (event) => pressedButton(event, "paper"));
@@ -17,10 +18,11 @@ function pressedButton(event, buttonType) {
     console.log(answer);
 
 
-    
+
     const opciones = ["rock", "paper", "scissors"];
     const bot = opciones[Math.floor(Math.random() * opciones.length)];
     console.log("bot election:", bot);
+   
     winner(answer, bot);
 }
 
