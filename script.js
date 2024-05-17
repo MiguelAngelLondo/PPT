@@ -1,33 +1,46 @@
-
-
-
-
 const rock = document.getElementById('rock')
 const paper = document.getElementById('paper')
 const scissors = document.getElementById('scissors')
-const estart = document.getElementById('start')
+const start = document.getElementById('start')
 
-window.addEventListener("DOMContentLoaded", pressButton)
+window.addEventListener("DOMContentLoaded", pressButton);
 
 function pressButton(){
-    rock.addEventListener("click", (event) => pressedButton(event, rock))
-    paper.addEventListener("click", (event) => pressedButton(event, paper))
-    scissors.addEventListener("click", (event) => pressedButton(event, scissors))
-
+    rock.addEventListener("click", (event) => pressedButton(event, "rock"))
+    paper.addEventListener("click", (event) => pressedButton(event, "paper"))
+    scissors.addEventListener("click", (event) => pressedButton(event, "scissors"))
 }
 
 function pressedrock (){
     let answer = "rock"
+    console.log(answer)
     return answer
+}
 
+function pressedpaper (){
+    let answer = "paper"
+    console.log(answer)
+    return answer
+}
+
+function pressedButton (event, buttonType){
+    let answer = buttonType;
+    console.log(answer) 
+    return answer
+}
+
+const opciones = ["rock", "paper", "scissors"];
+
+const bot = opciones[Math.floor(Math.random() * opciones.length)];
+
+winner(answer,bot) {
+  
+    if (answer == bot) {
+        console.log('Draw')
+    } else if((answer == "paper" && bot == "rock") || (answer == "scissors" && bot == "paper")|| (answer == "rock" && bot == "scissors")
+     ) {
+        console.log('You won')
+    } else {
+       console.log('You lost')
     }
-    function pressedpaper (){
-        let answer = "paper"
-        return answer
-    
-        }
-        function pressedButton (){
-            let answer = "scissors"
-            return answer
-        
-            }
+}
