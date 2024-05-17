@@ -2,9 +2,15 @@ const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 const start = document.getElementById('start');
+const playerChoiceSpan = document.getElementById('player-choice');
+const botChoiceSpan = document.getElementById('bot-choice');
+const resultElement = document.getElementById('result');
+const botWinsElement = document.getElementById('bot-wins');
+const playerWinsElement = document.getElementById('player-wins');
+let botWins = 0;
+let playerWins = 0;
 
 window.addEventListener("DOMContentLoaded", pressButton);
-
 
 function pressButton() {
     rock.addEventListener("click", (event) => pressedButton(event, "rock"));
@@ -13,27 +19,42 @@ function pressButton() {
 }
 
 function pressedButton(event, buttonType) {
-
     let answer = buttonType;
-    console.log(answer);
-
-
+    playerChoiceSpan.textContent = answer;
 
     const opciones = ["rock", "paper", "scissors"];
     const bot = opciones[Math.floor(Math.random() * opciones.length)];
-    console.log("bot election:", bot);
-   
-    winner(answer, bot);
+    botChoiceSpan.textContent = bot;
+
+    determineWinner(answer, bot);
 }
 
-function winner(answer, bot) {
+function determineWinner(answer, bot) {
     if (answer === bot) {
-        console.log('Draw');
+        resultElement.textContent = 'Draw';
     } else if ((answer === "paper" && bot === "rock") || 
                (answer === "scissors" && bot === "paper") || 
                (answer === "rock" && bot === "scissors")) {
-        console.log('You won');
+        resultElement.textContent = 'You won';
+        playerWins++;
     } else {
-       console.log('You lost');
+        resultElement.textContent = 'You lost';
+        botWins++;
     }
+    if(botWins==3){
+        alert('Bot wins')
+        document.location.reload()
+    }else if (playerWins==3){
+    alert ('player wins')
+    document.location.reload()
+    }
+    updateWins();
 }
+
+
+function updateWins() {
+    
+    botWinsElement.textContent = "Bot Wins: " + botWins;
+    playerWinsElement.textContent = "Player Wins: " + playerWins;
+}
+

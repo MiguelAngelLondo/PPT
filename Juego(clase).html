@@ -6,38 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>Piedra papel o tijera</title>
-    
-    <nav>
-   <h1>Piedra papel o tijera</h1> <hr> 
-</nav>
 </head>
 <body>
-   
- <div id="pictures">
-    <img id="picture" src="assets/picture.png" alt="no carga">
+    <nav>
+        <h1>Piedra papel o tijera</h1>
+        <hr> 
+    </nav>
 
-</div>
+    <div id="pictures">
+        <img id="picture" src="assets/picture.png" alt="no carga">
+    </div>
  
-        <div id="radios">
-    <button id="rock" name="1"> XXX </button>
-    <button id="paper" name="1">   XXX      </button>
-    <button id="scissors" name="1">   XXX      </button>
-        </div>
+    <div id="radios">
+        <button id="rock" name="1"> Rock </button>
+        <button id="paper" name="1"> Paper </button>
+        <button id="scissors" name="1"> Scissors </button>
+    </div>
 
-        <br><br>
+    <br><br>
        
-    <button id="start">Start</button>
+    <button id="start"></button>
 
-    <div id="direction">
-<div id="left-h1"> <h1>Your choice</h1> </div>  <div id="right-h1"><h1>bot chooses </h1></div>
-</div>
-<div id="result"></div> 
-<div id="wins">Wins: 0</div> 
+    <section id="section-3">
+        <div id="direction">
+            <div id="left-h1"> <h1>Your choice: <span id="player-choice"></span></h1> </div>
+            <div id="right-h1"><h1>Bot chooses: <span id="bot-choice"></span></h1></div>
+        </div>
+       <h1><div id="result"></div></h1>
+       <h1><div id="player-wins">Player Wins: 0</div></h1>
+        <h1><div id="bot-wins">Bot Wins: 0</div></h1>
+    </section>
 
-
-
-
-
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
